@@ -100,8 +100,7 @@ Let's now do some hands on activities.
   - Import the Cylinder class using an import statement.
   - Define the `main()` function.
   - Inside `main()`, create an object of the Cylinder class by passing the required arguments (e.g., radius and height).
-  - Call both class methods; `display()` and `volume()`.
-  - Print the output.
+  - Call the `volume()` method, store the volume in a variable and print it.
 - Run the script from command line using the command: `python ./cylinder_tester.py`.
 - Take a clear screenshot of `volume()` method, `main()` form `cylinder_tester.py` and the output.
 
