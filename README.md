@@ -203,13 +203,13 @@ self._items.append((itemName, itemPrice))
 - Implement a **printReceipt()** method that prints
   - Each item’s name and price on a separate line.
   - The total price at the end.
-    ``` Python
+    ``` text
     Apple       2.50
     Bread       3.00
     Milk        4.20
     -----------------
     Total:     9.70
-  ```
+    ```
 -  Take a clear screenshot showing:
   - updated CashRegister class with the new instance varaiables and methods.
   - The `main()` function in your tester file.
