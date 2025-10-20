@@ -50,7 +50,10 @@ class Dog:
         self._breed = breed
 ```
 **Adding Methods**<br>
-Methods are functions that belong to a class. They typically perform actions using the object’s data.
+Methods are functions that belong to a class. They typically perform actions using the object’s data. All class methods have access to the instance variables of the object via self.
+- This is different from standalone functions in procedural programming:
+  - Standalone functions do not have access to the local variables of another function.
+  - Class methods, on the other hand, can access and modify the data stored within the object they belong to.
 ```Python
 class Dog:
     def __init__(self, name, breed):
