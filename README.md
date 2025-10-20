@@ -5,7 +5,7 @@ In Python, everything is an object — numbers, strings, lists, dictionaries etc
 Objects are created from classes, which are like blueprints describing how those objects behave and what data they store.
 
 # Lab Objectives
-- Understand what classes and objects are in Python
+- Understand what classes and objects are in Python.
 - To be able to use a pre-defined class by creating class objects and calling class methods.
 - Create and use your own classes.
 - Define attributes (variables) and methods (functions) inside a class
