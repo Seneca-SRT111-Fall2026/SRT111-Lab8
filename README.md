@@ -87,7 +87,7 @@ Let's now do some hands on activities.
 - Run the file using the command: `python ./dog_tester.py`.
 - Take a clear screenshot of the `main()` from `dog_tester.py` and the output in the terminal.
 
-## lab8b - Creating a Class Method and Testing the Class Independently
+## lab8b - Implementing a class method and testing the class
 **Objective:** To define a method inside a class and test the class from a separate file.<br>
 
 **Instructions:** 
@@ -132,7 +132,7 @@ This allows a cashier to quickly correct a mistake.
 - Run the script from command line using the command: `python ./cashregister_tester.py`.
 - Take a clear screenshot of undo() method, main() from `cashregister_tester.py` and the output.
 
-## lab8d - Managing Multiple Objects
+## lab8d - Managing multiple objects
 **Objective:** To work with multiple objects of the same class and perform operations on them.<br>
 
 **Instructions:** 
@@ -149,7 +149,7 @@ This allows a cashier to quickly correct a mistake.
 
 ## INVESTIGATION 2 — CLASS VARIABLES AND MODELING A REAL WORLD CLASS
 
-## lab8e - CashRegister: Adding Tax Functionality
+## lab8e - CashRegister: Adding tax functionality
 **Objective:** To extend an existing class by adding a class variable and a class method, and calculate total price including tax without modifying the original total.<br>
 
 So far, your `CashRegister` only keeps track of the total price without tax. Now, we want to be able to calculate the total price after applying tax. 
@@ -173,7 +173,7 @@ A class variable is shared by all instances of a class, making it perfect for a 
   - The `main()` function in your tester file.
   - Output displaying total price before and after tax.
 
-## lab8f - CashRegister: Storing Items and Printing a Receipt
+## lab8f - CashRegister: Storing items and printing a receipt
 **Objective:** To extend the CashRegister class so that it can store item names and individual prices, and print a detailed receipt with totals.<br>
 
 Currently, the `CashRegister` class only keeps a running total of prices and a count of items.
