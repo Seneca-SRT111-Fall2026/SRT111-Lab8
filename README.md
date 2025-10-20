@@ -105,7 +105,7 @@ Let's now do some hands on activities.
 - Take a clear screenshot of `volume()` method, `main()` form `cylinder_tester.py` and the output.
 
 
-## lab8c - Class CashRegister: Adding instance variable and class method in an existing class to extend the functionality
+## lab8c - Class CashRegister: Adding instance variable and method in an existing class to extend the functionality
 **Objective:** To extend an existing class by adding a new method and modifying instance variables, and to test the class using a separate script.<br>
 
 **Instructions:** 
