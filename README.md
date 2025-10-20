@@ -73,6 +73,7 @@ print(my_dog.bark())  # Output: Buddy says woof!
 
 ### lab8a - Using a class
 **Objective:** To create an object from a Python class and call one of its methods.<br>
+
 **Instructions:** 
 
 - Review the code in the file `dog.py`.
@@ -87,6 +88,7 @@ print(my_dog.bark())  # Output: Buddy says woof!
 
 ## lab8b - Creating a Class Method and Testing the Class Independently
 **Objective:** To define a method inside a class and test the class from a separate file.<br>
+
 **Instructions:** 
 
 - Open the file `cylinder.py`.
@@ -105,6 +107,7 @@ print(my_dog.bark())  # Output: Buddy says woof!
 
 ## lab8c - Class CashRegister: Adding instance variable and class method in an existing class to extend the functionality
 **Objective:** To extend an existing class by adding a new method and modifying instance variables, and to test the class using a separate script.<br>
+
 **Instructions:** 
 
 During our lecture session, we implemented a `CashRegister` that could add items and calculate the total.
@@ -150,6 +153,7 @@ This allows a cashier to quickly correct a mistake.
 **Objective:** To extend an existing class by adding a class variable and a class method, and calculate total price including tax without modifying the original total..<br>
 So far, your `CashRegister` only keeps track of the total price without tax. Now, we want to be able to calculate the total price after applying tax. 
 A class variable is shared by all instances of a class, making it perfect for a constant like TAX_RATE.A class method will calculate the total including tax using the class variable.
+
 **Instructions:** 
 - Open your previous `cashregister.py` file.
 - Add a class variable to the CashRegister class to store the tax rate.
