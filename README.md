@@ -1,5 +1,5 @@
 # Lab 8
-In this lab, you will create five Python scripts. All scripts must be written in GitHub Codespaces.<br>
+In this lab, you will create six Python scripts. All scripts must be written in GitHub Codespaces.<br>
 
 In Python, everything is an object — numbers, strings, lists, dictionaries etc... <br>
 Objects are created from classes, which are like blueprints describing how those objects behave and what data they store.
