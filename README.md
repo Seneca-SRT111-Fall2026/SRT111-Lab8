@@ -211,7 +211,7 @@ self._items.append((itemName, itemPrice))
     Total:     9.70
     ```
 -  Take a clear screenshot showing:
-  -  updated CashRegister class with the new instance varaiables and methods.
+-  Updated CashRegister class with the new instance varaiables and methods.
   -  The `main()` function in your tester file.
   -  Output displaying the resceipt.
     
