@@ -54,6 +54,7 @@ class Dog:
         self._breed = breed  # Each dog object has its own breed
 ```
 Here self._name and self._breed are instance variables (attributes) belonging to the object.
+
 **Adding Methods**<br>
 Methods are functions that belong to a class. They typically perform actions using the object’s data. All class methods have access to the instance variables of the object via self.
 ```Python
