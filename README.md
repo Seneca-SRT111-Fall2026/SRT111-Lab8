@@ -72,7 +72,7 @@ print(my_dog.bark())  # Output: Buddy says woof!
 ```
 
 ### lab8a - Creating a Class Object and Calling a Class Method
-**Objective:** To create an object from a Python class and call one of its methods.
+**Objective:** To create an object from a Python class and call one of its methods.<br>
 **Instructions:** 
 
 - Review the code in the file `dog.py`.
