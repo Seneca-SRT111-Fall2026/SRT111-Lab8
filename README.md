@@ -131,6 +131,7 @@ This allows a cashier to quickly correct a mistake.
 
 ## lab8d - Managing Multiple Objects
 **Objective:** To work with multiple objects of the same class and perform operations on them.<br>
+
 **Instructions:** 
 
 - Create a new file called `store_tester.py`.
@@ -143,6 +144,30 @@ This allows a cashier to quickly correct a mistake.
 - Run the script from command line using the command: `python ./store_tester.py`.
 - Take a clear screenshot of main() and the output.
 
+## INVESTIGATION 2 — ENHANCING THE CASHREGISTER CLASS: TAX, ITEMS, AND RECEIPTS
+
+## lab8e - CashRegister: Adding Tax Functionality
+**Objective:** To extend an existing class by adding a class variable and a class method, and calculate total price including tax without modifying the original total..<br>
+So far, your `CashRegister` only keeps track of the total price without tax. Now, we want to be able to calculate the total price after applying tax. 
+A class variable is shared by all instances of a class, making it perfect for a constant like TAX_RATE.A class method will calculate the total including tax using the class variable.
+**Instructions:** 
+- Open your previous `cashregister.py` file.
+- Add a class variable to the CashRegister class to store the tax rate.
+  - Example: TAX_RATE = 0.13 (13% default).
+- Remember: this is a class variable, not an instance variable.
+- Implement a class method getTotalWithTax() that:
+  - Accepts self as a parameter.
+  - Calculates the total price including tax.
+  - Returns the total with tax. Important: Do not update _totalPrice. The original total should remain unchanged.
+  - Update your tester script (cashregister_tester.py) to:
+    - Call the new getTotalWithTax() method on your CashRegister object.
+    - Print both the original total and the total including tax.
+- Run the script from command line using the command: `python ./cashregister_tester.py`.
+- Take a clear screenshot showing:
+  - updated CashRegister class with the new class variable and method.
+  - The main() function in your tester file.
+  - Output displaying total price before and after tax.
+    
 ## Lab 8 Sign-Off
 - Submit a PDF on Blackboard, named using your Seneca username (e.g., yoursenecausername.pdf).
 - The PDF must include screenshots of the following scripts and their terminal output, clearly showing your GitHub username.
