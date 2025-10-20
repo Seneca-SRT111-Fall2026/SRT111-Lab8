@@ -200,13 +200,13 @@ self._items.append((itemName, itemPrice))
   - Ensure that getTotal() calculates the total based on the individual stored prices, rather than relying on a running total.
   - Ensure that getCount() correctly returns the number of items stored.
 - Run the script from command line using the command: `python ./cashregister_tester.py`.
-- Implement a **printReceipt()** method that prints
-- Each item’s name and price on a separate line.
-- The total price at the end.
+- Implement a **printReceipt()** method that prints:
+  - Each item’s name and price on a separate line.
+  - The total price at the end.
 - Take a clear screenshot showing:
-- Updated CashRegister class with the new instance varaiables and methods.
-- The `main()` function in your tester file.
-- Output displaying the resceipt.
+  - Updated CashRegister class with the new instance varaiables and methods.
+  - The `main()` function in your tester file.
+  - Output displaying the resceipt.
     
 ## Lab 8 Sign-Off
 - Submit a PDF on Blackboard, named using your Seneca username (e.g., yoursenecausername.pdf).
