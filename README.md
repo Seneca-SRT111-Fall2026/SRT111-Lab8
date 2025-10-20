@@ -8,7 +8,7 @@ Objects are created from classes, which are like blueprints describing how those
 - Understand what classes and objects are in Python.
 - To be able to use a pre-defined class by creating class objects and calling class methods.
 - Create and use your own classes.
-- Define attributes (variables) and methods (functions) inside a class
+- Define attributes (variables) and methods (functions) inside a class.
 - Understand the instance variables, self parameter, and constructor function.
 - Create and manipulate multiple objects from the same class.
   
