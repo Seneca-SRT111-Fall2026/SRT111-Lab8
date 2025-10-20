@@ -29,14 +29,14 @@ For each task:
 
 In Python, a class is a blueprint for creating objects. It defines a set of attributes (data) and methods (functions) that the objects created from the class will have.
 Let’s look at a step-by-step example of how to create a simple class.
-**Defining a Class**
+**Defining a Class** <br>
 A class is defined using the `class` keyword, followed by the class name and a colon:
 ```Python
 class Dog:
     pass
 ```
 The pass statement is a placeholder—it means “do nothing for now,” allowing the class definition to exist without any content yet.
-**Adding Attributes**
+**Adding Attributes**<br>
 Attributes are variables that belong to the class.
 They are usually defined inside a special method called `__init__()`, which runs automatically when a new object is created.
 
@@ -47,7 +47,7 @@ class Dog:
         self._name = name
         self._breed = breed
 ```
-**Adding Methods**
+**Adding Methods**<br>
 Methods are functions that belong to a class. They typically perform actions using the object’s data.
 ```Python
 class Dog:
@@ -58,7 +58,7 @@ class Dog:
     def bark(self):
         return f"{self._name} says woof!"
 ```
-**Creating and Using an Object**
+**Creating and Using an Object**<br>
 You can create an object (an instance of the class) by calling the class name like a function, with the required arguments:
 ```Python
 my_dog = Dog("Buddy", "Golden Retriever")
