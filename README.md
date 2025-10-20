@@ -172,6 +172,49 @@ A class variable is shared by all instances of a class, making it perfect for a 
   - updated CashRegister class with the new class variable and method.
   - The `main()` function in your tester file.
   - Output displaying total price before and after tax.
+
+## lab8f - CashRegister: Storing Items and Printing a Receipt
+**Objective:** To extend the CashRegister class so that it can store item names and individual prices, and print a detailed receipt with totals.<br>
+
+Currently, the `CashRegister` class only keeps a running total of prices and a count of items.
+This is not enough to print a proper receipt that shows each item’s name and price.
+In this activity, you will re-write the class to store item information individually and modify the methods accordingly.
+
+**Instructions:** 
+- Open your previous `cashregister.py` file.
+- Update the constructor (__init__) of the CashRegister class.
+  - Add instance variable(s) to store item names and their prices.
+  - You may choose one of the following approaches:
+    - Two parallel lists: one for names, one for prices.
+    - A dictionary with item names as keys and prices as values.
+    - A list of tuples.
+  - Initialize these variable(s) to empty (e.g., empty list or dictionary).
+- Update the **addItem()** method:
+- Modify it to accept two parameters: itemName and itemPrice.
+- Store the item information in the instance variable(s) defined above
+- Example for list of tuples:
+```Python
+self._items.append((itemName, itemPrice))
+```
+- Update the **getTotal()** and **getCount()** methods (if needed):
+  - Ensure that getTotal() calculates the total based on the individual stored prices, rather than relying on a running total.
+  - Ensure that getCount() correctly returns the number of items stored.
+- Run the script from command line using the command: `python ./cashregister_tester.py`.
+- Implement a **printReceipt()** method that prints
+  - Each item’s name and price on a separate line.
+  - The total price at the end.
+
+    ``` xml
+    Apple       2.50
+    Bread       3.00
+    Milk        4.20
+    -----------------
+    Total:     9.70
+```
+-  Take a clear screenshot showing:
+  - updated CashRegister class with the new instance varaiables and methods.
+  - The `main()` function in your tester file.
+  - Output displaying the resceipt.
     
 ## Lab 8 Sign-Off
 - Submit a PDF on Blackboard, named using your Seneca username (e.g., yoursenecausername.pdf).
@@ -180,5 +223,6 @@ A class variable is shared by all instances of a class, making it perfect for a 
   - lab8b.py
   - lab8c.py
   - lab8d.py
+  - lab8e.py
 - Ensure the code and output are clearly readable. Screenshots should be high-resolution (minimum 800x600) and not blurry.
 - Blurry or unreadable submissions will be returned for redo. Resubmissions will only be graded as Satisfactory with a grade of 0, provided the work is satisfactory.
