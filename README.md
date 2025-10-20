@@ -153,7 +153,7 @@ This allows a cashier to quickly correct a mistake.
 **Objective:** To extend an existing class by adding a class variable and a class method, and calculate total price including tax without modifying the original total.<br>
 
 So far, your `CashRegister` only keeps track of the total price without tax. Now, we want to be able to calculate the total price after applying tax. 
-A class variable is shared by all instances of a class, making it perfect for a constant like TAX_RATE.A class method will calculate the total including tax using the class variable.
+A class variable is shared by all instances of a class, making it perfect for a constant like TAX_RATE. A class method will calculate the total including tax using the class variable.
 
 **Instructions:** 
 - Open your previous `cashregister.py` file.
