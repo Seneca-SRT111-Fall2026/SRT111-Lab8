@@ -10,7 +10,7 @@ Objects are created from classes, which are like blueprints describing how those
 - Create and use your own classes.
 - Define attributes (variables) and methods (functions) inside a class
 - Understand the instance variables, self parameter, and constructor function.
-- Create and manipulate multiple objects from the same class
+- Create and manipulate multiple objects from the same class.
   
 # Submission Instructions
 For each task:
@@ -29,6 +29,7 @@ For each task:
 
 In Python, a class is a blueprint for creating objects. It defines a set of attributes (data) and methods (functions) that the objects created from the class will have.
 Let’s look at a step-by-step example of how to create a simple class.
+
 **Defining a Class** <br>
 A class is defined using the `class` keyword, followed by the class name and a colon:
 ```Python
