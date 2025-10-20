@@ -7,18 +7,23 @@
 #--------------------------------
 
 class Dog:
-    # init is the constructor, it is called an object of this class is created.
-    # this constructor function creates two variables; _name and _breed.
-    # these variables are called attributes or instance variables.
-    # instance variables are created for each class object.
-    # each class object received its own instance variables.
+    # __init__ is the constructor. It is automatically called 
+    # when an object of this class is created.
+    #
+    # This constructor defines two instance variables: _name and _breed.
+    # These variables are also called attributes.
+    #
+    # Instance variables belong to each object of the class.
+    # Each object gets its own separate copies of these variables.
     
     def __init__(self, dog_name, dog_breed): 
-        # self has the reference/address of a specific object
-        # self.variable_name makes sure that variable is created for the specific object.
-        self._name = name  # _name is being assigned the value name passed as parameter
-        
-        self._breed = breed  # _breed is being assigned the value breed passed as parameter
+        # 'self' refers to the current object being created.
+        # It holds the reference (or address) to that specific object.
+        #
+        # Using self.variable_name ensures that the variable belongs
+        # to this particular object (an instance variable).
+        self._name = dog_name   # Assign the value of dog_name to the object's _name attribute
+        self._breed = dog_breed # Assign the value of dog_breed to the object's _breed attribute
 
     def bark(self):
         # each class method can access instance variables.
