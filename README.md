@@ -160,17 +160,17 @@ A class variable is shared by all instances of a class, making it perfect for a 
 - Add a class variable to the CashRegister class to store the tax rate.
   - Example: TAX_RATE = 0.13 (13% default).
 - Remember: this is a class variable, not an instance variable.
-- Implement a class method getTotalWithTax() that:
+- Implement a class method `getTotalWithTax()` that:
   - Accepts self as a parameter.
   - Calculates the total price including tax.
-  - Returns the total with tax. Important: Do not update _totalPrice. The original total should remain unchanged.
+  - Returns the total with tax. Important: Do not update `_totalPrice`. The original total should remain unchanged.
   - Update your tester script (cashregister_tester.py) to:
-    - Call the new getTotalWithTax() method on your CashRegister object.
+    - Call the new `getTotalWithTax()` method on your `CashRegister` object.
     - Print both the original total and the total including tax.
 - Run the script from command line using the command: `python ./cashregister_tester.py`.
 - Take a clear screenshot showing:
   - updated CashRegister class with the new class variable and method.
-  - The main() function in your tester file.
+  - The `main()` function in your tester file.
   - Output displaying total price before and after tax.
     
 ## Lab 8 Sign-Off
