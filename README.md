@@ -86,7 +86,7 @@ print(my_dog.bark())  # Output: Buddy says woof!
 - Take a clear screenshot of the `main()` from `dog_tester.py` and the output in the terminal.
 
 ## lab8b - Creating a Class Method and Testing the Class Independently
-**Objective:** To define a method inside a class and test the class from a separate file
+**Objective:** To define a method inside a class and test the class from a separate file.<br>
 **Instructions:** 
 
 - Open the file `cylinder.py`.
