@@ -37,6 +37,7 @@ class Dog:
     pass
 ```
 The pass statement is a placeholder—it means “do nothing for now,” allowing the class definition to exist without any content yet.
+
 **Adding Attributes**
 
 Attributes are variables that belong to the class.
