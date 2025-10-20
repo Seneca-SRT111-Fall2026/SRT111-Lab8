@@ -203,10 +203,10 @@ self._items.append((itemName, itemPrice))
 - Implement a **printReceipt()** method that prints
 - Each item’s name and price on a separate line.
 - The total price at the end.
--  Take a clear screenshot showing:
--  Updated CashRegister class with the new instance varaiables and methods.
--  The `main()` function in your tester file.
--  Output displaying the resceipt.
+- Take a clear screenshot showing:
+- Updated CashRegister class with the new instance varaiables and methods.
+- The `main()` function in your tester file.
+- Output displaying the resceipt.
     
 ## Lab 8 Sign-Off
 - Submit a PDF on Blackboard, named using your Seneca username (e.g., yoursenecausername.pdf).
