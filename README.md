@@ -98,7 +98,7 @@ Let's now do some hands on activities.
 - Create a new file called `cylinder_tester.py`
   - Add comments in `cylinder_tester.py` to explain the purpose of this file.
   - Import the Cylinder class using an import statement.
-  - Define a `main()` function.
+  - Define the `main()` function.
   - Inside `main()`, create an object of the Cylinder class by passing the required arguments (e.g., radius and height).
   - Call both class methods; `display()` and `volume()`.
   - Print the output.
