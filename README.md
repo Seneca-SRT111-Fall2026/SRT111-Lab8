@@ -1,8 +1,9 @@
 # Lab 8
 In this lab, you will create six Python scripts. All scripts must be written in GitHub Codespaces.<br>
 
-In Python, everything is an object — numbers, strings, lists, dictionaries etc... <br>
-Objects are created from classes, which are like blueprints describing how those objects behave and what data they store.
+Python is an object-oriented programming language, which means that almost everything you work with — numbers, strings, lists, and even functions — is treated as an object. Objects are created from classes, which serve as blueprints that define the data (attributes) the object stores and the behavior (methods) it can perform.
+
+This lab  is designed to introduce you to the core concepts of object-oriented programming in Python through hands-on activities. You will start by learning how to create simple classes and objects, define attributes and methods, and use the classes by creating class objects.
 
 # Lab Objectives
 - Understand what classes and objects are in Python.
