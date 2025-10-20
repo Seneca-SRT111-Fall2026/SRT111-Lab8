@@ -71,7 +71,7 @@ You can access an object’s methods or attributes using dot notation:
 print(my_dog.bark())  # Output: Buddy says woof!
 ```
 Let's now do some hands on activities.
----
+
 ### lab8a - Using a class
 **Objective:** To create an object from a Python class and call one of its methods.<br>
 
