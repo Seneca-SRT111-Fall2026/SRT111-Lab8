@@ -71,7 +71,7 @@ You can access an object’s methods or attributes using dot notation:
 print(my_dog.bark())  # Output: Buddy says woof!
 ```
 
-### lab8a - Creating a Class Object and Calling a Class Method
+### lab8a - Using a class
 **Objective:** To create an object from a Python class and call one of its methods.<br>
 **Instructions:** 
 
@@ -103,23 +103,39 @@ print(my_dog.bark())  # Output: Buddy says woof!
 - Take a clear screenshot of `volume()` method, `main()` form `cylinder_tester.py` and the output.
 
 
-## lab7c - class CashRegister
-### Adding instance variable and class method in an existing class to extend the functionality
+## lab8c - Class CashRegister: Adding instance variable and class method in an existing class to extend the functionality
+**Objective:** To extend an existing class by adding a new method and modifying instance variables, and to test the class using a separate script.<br>
+**Instructions:** 
 
-We did an example of implementing `CashRegister` class. Suppose the CashRegister needs to support a method undo() that undoes the addition of the preceding item. This enables a cashier to quickly undo a mistake. 
+During our lecture session, we implemented a `CashRegister` that could add items and calculate the total.
+Now, suppose the `CashRegister` needs to support an `undo()` method that removes the most recently added item.
+This allows a cashier to quickly correct a mistake.
 
-- Complete the undo function in `cashregister.py` according to the instructions given.
+- Open the file `cashregister.py.`
+  - Complete the undo function in `cashregister.py`.
+  - The `undo()` method should remove the most recently added item and adjust the total accordingly.
+  - You need to use an additional instance variable (such as a list to store added items).
 - Create a new file called `cashregister_tester.py`
-- Add comments in `cashregister_tester.py` to explain the purpose of this file.
-- Import `class CashRegister` in the `cashregister_tester.py`.
-- Add main() function in the `cashregister_tester.py`.
-- Test the undo functionality by creating an object of the class and calling the necessary methods inside main() and then calling the main().
+  - Add comments in `cashregister_tester.py` to explain the purpose of this file.
+- In `cashregister_tester.py`:
+  - Import `CashRegister`class.
+  - Define a `main()` function.
+  - Inside the `main()`:
+    - Create an object of the `CashRegiste`r class.
+    - Add a few items using the `addItem()` method.
+    - Print the total after adding items.
+    - Call the `undo()` method twice to test it.
+    - Print the total again to confirm that the last addition(s) were undone.
 - Run the script from command line using the command: `python ./cashregister_tester.py`.
-- Take a clear screenshot of undo() method, main() from `cashregister_tester.py` and the output. Add this screenshot in the pdf.
+- Take a clear screenshot of undo() method, main() from `cashregister_tester.py` and the output.
 
 
-## Lab 7 Sign-Off
-- Submit the pdf including the  above mentioned screenshots.
-- The screenshot must show your username on github codespaces.
-- Make sure screenshots are readable.
-- Name your file as: StudentFullName_PRG101_Lab7.pdf
+## Lab 8 Sign-Off
+- Submit a PDF on Blackboard, named using your Seneca username (e.g., yoursenecausername.pdf).
+- The PDF must include screenshots of the following scripts and their terminal output, clearly showing your GitHub username.
+  - lab8a.py
+  - lab8b.py
+  - lab8c.py
+  - lab8d.py
+- Ensure the code and output are clearly readable. Screenshots should be high-resolution (minimum 800x600) and not blurry.
+- Blurry or unreadable submissions will be returned for redo. Resubmissions will only be graded as Satisfactory with a grade of 0, provided the work is satisfactory.
