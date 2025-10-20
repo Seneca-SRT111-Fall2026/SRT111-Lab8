@@ -27,56 +27,61 @@ For each task:
   
 ## INVESTIGATION 1: CREATING A SIMPLE CLASS
 
-In Python, a class is a blueprint for creating objects. It defines a set of attributes and methods that the objects created from the class can have. Here's a demonstration of creating a simple class :
-
-A class is defined using the class keyword, followed by the class name and a colon.
+In Python, a class is a blueprint for creating objects. It defines a set of attributes (data) and methods (functions) that the objects created from the class will have.
+Let’s look at a step-by-step example of how to create a simple class.
+**Defining a Class**
+A class is defined using the `class` keyword, followed by the class name and a colon:
 ```Python
 class Dog:
     pass
 ```
+The pass statement is a placeholder—it means “do nothing for now,” allowing the class definition to exist without any content yet.
+**Adding Attributes**
+Attributes are variables that belong to the class.
+They are usually defined inside a special method called `__init__()`, which runs automatically when a new object is created.
 
-Attributes are variables that belong to the class. These are usually defined in a special method called `__init__`. This method is called automatically when a new object is created from the class. The self parameter is a reference to the current instance/object of the class.
+The self parameter refers to the current instance of the class.
 ```Python
 class Dog:
     def __init__(self, name, breed):
         self._name = name
         self._breed = breed
 ```
-
-Methods are functions that belong to the class.
+**Adding Methods**
+Methods are functions that belong to a class. They typically perform actions using the object’s data.
 ```Python
 class Dog:
-    def __init__(self, dog_name, dog_breed):
+    def __init__(self, name, breed):
         self._name = name
         self._breed = breed
 
     def bark(self):
         return f"{self._name} says woof!"
 ```
-
-You can create an object (an instance of a class) by calling the class name with the required arguments.
+**Creating and Using an Object**
+You can create an object (an instance of the class) by calling the class name like a function, with the required arguments:
 ```Python
 my_dog = Dog("Buddy", "Golden Retriever")
 ```
 
-You can access class methods of an object using dot notation.
+You can access an object’s methods or attributes using dot notation:
 ```Python
 print(my_dog.bark())  # Output: Buddy says woof!
 ```
 
-### lab7a - class Dog
-**Objective:** Practice reading data from a text file in Python.  
+### lab8a - Creating a Class Object and Calling a Class Method
+**Objective:** To create an object from a Python class and call one of its methods.
+**Instructions:** 
 
-### Creating class object and calling class method.
-**Instructions:** Practice reading data from a text file in Python.  
-
-- Review the code in the file dog.py. Understand the class definition and how instance variables have been created inside the constructor.
-- Open the file dog_tester.py.
-- The class dog has been imported.
-- Create a new object of the `class Dog` inside `main()` function.
-- Call the bark method for the object.
+- Review the code in the file `dog.py`.
+  - Understand the Dog class definition and how instance variables are initialized inside the constructor (__init__ method).
+- Open the file `dog_tester.py`.
+  - Notice that the Dog class has already been imported for you.
+- Inside the main() function:
+  - Create a new object of the Dog class (for example, my_dog = Dog("Buddy", "Golden Retriever")).
+  - Call the bark() method for this object.
 - Run the file using the command: `python ./dog_tester.py`.
-- Take a clear screenshot of the `main()` from `dog_tester.py` and the output. Add this screenshot in the pdf.
+- Take a clear screenshot of the `main()` from `dog_tester.py` and the output in the terminal.
 
 ## lab7b - class Cylinder
 ### Creating a class method, testing the class independently
