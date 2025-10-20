@@ -83,20 +83,21 @@ print(my_dog.bark())  # Output: Buddy says woof!
 - Run the file using the command: `python ./dog_tester.py`.
 - Take a clear screenshot of the `main()` from `dog_tester.py` and the output in the terminal.
 
-## lab7b - class Cylinder
-### Creating a class method, testing the class independently
-
-- A class `Cylinder` has been created for you in the file `cylinder.py`
-- Complete the `volume` method.
+## lab8b - Creating a Class Method and Testing the Class Independently
+**Objective:** To define a method inside a class and test the class from a separate file
+**Instructions:** 
+- Open the file `cylinder.py`.
+  - A class named Cylinder has already been created for you.
+  - Complete the volume() method so that it calculates and returns the volume of the cylinder. (Hint: Volume = π × radius² × height)
 - Create a new file called `cylinder_tester.py`
-- Add comments in `cylinder_tester.py` to explain the purpose of this file.
-- Import `class Cylinder` in the `cylinder_tester.py`.
-- Create the `main()` function.
-- Create a class object.
-- Call both class methods.
-- Print the output.
+  - Add comments in `cylinder_tester.py` to explain the purpose of this file.
+  - Import the Cylinder class using an import statement.
+  - Define a `main()` function.
+  - Inside `main()`, create an object of the Cylinder class by passing the required arguments (e.g., radius and height).
+  - Call both class methods; `display()` and `volume()`.
+  - Print the output.
 - Run the script from command line using the command: `python ./cylinder_tester.py`.
-- Take a clear screenshot of volume() method, `main()` form `cylinder_tester.py` and the output. Add this screenshot in the pdf.
+- Take a clear screenshot of `volume()` method, `main()` form `cylinder_tester.py` and the output.
 
 
 ## lab7c - class CashRegister
