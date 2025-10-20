@@ -43,13 +43,17 @@ The pass statement is a placeholder—it means “do nothing for now,” allowin
 Attributes are variables that belong to the class.
 They are usually defined inside a special method called `__init__()`, which runs automatically when a new object is created.
 
-The self parameter refers to the current instance of the class.
+The self parameter is a reference to the current object being created or used.
+- It allows each object to store its own separate data.
+- Using self.attribute_name ensures that the attribute belongs to this specific object, not to the class as a whole or to another object.
+- Think of self as a way for the object to keep track of its own data.
 ```Python
 class Dog:
     def __init__(self, name, breed):
-        self._name = name
-        self._breed = breed
+        self._name = name    # Each dog object has its own name
+        self._breed = breed  # Each dog object has its own breed
 ```
+Here self._name and self._breed are instance variables (attributes) belonging to the object.
 **Adding Methods**<br>
 Methods are functions that belong to a class. They typically perform actions using the object’s data. All class methods have access to the instance variables of the object via self.
 ```Python
