@@ -37,7 +37,8 @@ class Dog:
     pass
 ```
 The pass statement is a placeholder—it means “do nothing for now,” allowing the class definition to exist without any content yet.
-**Adding Attributes**<br>
+**Adding Attributes**
+
 Attributes are variables that belong to the class.
 They are usually defined inside a special method called `__init__()`, which runs automatically when a new object is created.
 
@@ -48,7 +49,8 @@ class Dog:
         self._name = name
         self._breed = breed
 ```
-**Adding Methods**<br>
+**Adding Methods**
+
 Methods are functions that belong to a class. They typically perform actions using the object’s data.
 ```Python
 class Dog:
@@ -59,7 +61,8 @@ class Dog:
     def bark(self):
         return f"{self._name} says woof!"
 ```
-**Creating and Using an Object**<br>
+**Creating and Using an Object**
+
 You can create an object (an instance of the class) by calling the class name like a function, with the required arguments:
 ```Python
 my_dog = Dog("Buddy", "Golden Retriever")
