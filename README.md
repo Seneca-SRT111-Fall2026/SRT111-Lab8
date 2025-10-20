@@ -122,9 +122,9 @@ This allows a cashier to quickly correct a mistake.
   - Add comments in `cashregister_tester.py` to explain the purpose of this file.
 - In `cashregister_tester.py`:
   - Import `CashRegister`class.
-  - Define a `main()` function.
+  - Define the `main()` function.
   - Inside the `main()`:
-    - Create an object of the `CashRegiste`r class.
+    - Create an object of the `CashRegister` class.
     - Add a few items using the `addItem()` method.
     - Print the total after adding items.
     - Call the `undo()` method twice to test it.
