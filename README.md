@@ -147,7 +147,7 @@ This allows a cashier to quickly correct a mistake.
 - Run the script from command line using the command: `python ./store_tester.py`.
 - Take a clear screenshot of main() and the output.
 
-## INVESTIGATION 2 — ENHANCING THE CASHREGISTER CLASS: TAX, ITEMS, AND RECEIPTS
+## INVESTIGATION 2 — CLASS VARIABLES AND MODELING A REAL WORLD CLASS
 
 ## lab8e - CashRegister: Adding Tax Functionality
 **Objective:** To extend an existing class by adding a class variable and a class method, and calculate total price including tax without modifying the original total.<br>
