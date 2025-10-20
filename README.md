@@ -129,6 +129,19 @@ This allows a cashier to quickly correct a mistake.
 - Run the script from command line using the command: `python ./cashregister_tester.py`.
 - Take a clear screenshot of undo() method, main() from `cashregister_tester.py` and the output.
 
+## lab8d - Managing Multiple Objects
+**Objective:** To work with multiple objects of the same class and perform operations on them.<br>
+**Instructions:** 
+
+- Create a new file called `store_tester.py`.
+- Import the `CashRegister` class.
+- In the `main()`:
+  - Create two CashRegister objects, for example register1 and register2.
+  - Add a few items to each register using addItem().
+  - Print the totals for each register.
+- Compare the two totals and print which register collected more money.
+- Run the script from command line using the command: `python ./store_tester.py`.
+- Take a clear screenshot of main() and the output.
 
 ## Lab 8 Sign-Off
 - Submit a PDF on Blackboard, named using your Seneca username (e.g., yoursenecausername.pdf).
