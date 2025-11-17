@@ -6,8 +6,8 @@ class Cylinder:
         Constructor that initializes the height and radius of the cylinder.
         Default values are 1 if no arguments are provided.
         """
-        self.height = height
-        self.radius = radius
+        self._height = height
+        self._radius = radius
 
     def volume(self):
         """
@@ -22,5 +22,5 @@ class Cylinder:
         Calculates and returns the surface area of the cylinder.
         Formula: 2πr^2 + 2πrh
         """
-        top = 3.14 * (self.radius ** 2)
-        return (2 * top) + (2 * 3.14 * self.radius * self.height)
+        top = 3.14 * (self._radius ** 2)
+        return (2 * top) + (2 * 3.14 * self._radius * self._height)
