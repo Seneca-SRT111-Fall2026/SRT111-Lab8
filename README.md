@@ -122,8 +122,8 @@ This allows a cashier to quickly correct a mistake.
 
 - Open the file `cashregister.py.`
   - Complete the undo function in `cashregister.py`.
-  - The `undo()` method should remove the most recently added item and adjust the total accordingly.
-  - You need to use an additional instance variable (such as a list to store added items).
+    - The `undo()` method should remove the most recently added item and adjust the total accordingly.
+    - You need to use an additional instance variable such as a list to store added items.
 - Create a new file called `cashregister_tester.py`
   - Add comments in `cashregister_tester.py` to explain the purpose of this file.
 - In `cashregister_tester.py`:
@@ -131,7 +131,7 @@ This allows a cashier to quickly correct a mistake.
   - Define the `main()` function.
   - Inside the `main()`:
     - Create an object of the `CashRegister` class.
-    - Add a few items using the `addItem()` method.
+    - Add a four items using the `addItem()` method.
     - Print the total after adding items.
     - Call the `undo()` method twice to test it.
     - Print the total again to confirm that the last addition(s) were undone.
