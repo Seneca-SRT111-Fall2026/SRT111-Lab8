@@ -1,9 +1,21 @@
-# Lab 8
+# Lab 8: Classes and Objects
+**Weight:** 2% <br>
+**Work Type:** Individual <br>
+Environment: GitHub Codespaces
+**Submission Format:** Screenshots
+
+----
+
+## Introduction
+
+
 In this lab, you will create six Python scripts. All scripts must be written in GitHub Codespaces.<br>
 
 Python is an object-oriented programming language, which means that almost everything you work with — numbers, strings, lists, and even functions — is treated as an object. Objects are created from classes, which serve as blueprints that define the data (attributes) the object stores and the behavior (methods) it can perform.
 
 This lab  is designed to introduce you to the core concepts of object-oriented programming in Python through hands-on activities. You will start by learning how to create simple classes and objects, define attributes and methods, and use the classes by creating class objects.
+
+----
 
 # Lab Objectives
 - Understand what classes and objects are in Python.
@@ -13,18 +25,22 @@ This lab  is designed to introduce you to the core concepts of object-oriented p
 - Understand the instance variables, self parameter, and constructor function.
 - Create and manipulate multiple objects from the same class.
   
+----
+
 # Submission Instructions
 For each task:
-1. **Write the script** in Codespaces.  
-2. **Run the script** from the **terminal**.  
-3. **Take a screenshot** that clearly shows:  
+1. Write the script in Codespaces.  
+2. Run the script from the **terminal**.  
+3. Take a screenshot that clearly shows:  
    - Your **code** in the editor.  
    - The **terminal output**, including your **username** visible in the terminal.  
-4. **Insert the screenshot** into a Word document under the heading that matches the task name:  
-   - Example: **Lab8a**, **Lab8b**, **Lab8c**, etc.  
-5. After completing all tasks, **convert the Word document to PDF**.  Name the PDF file using your **yoursenecausername.pdf**
-6. **Submit the PDF file** as your final lab submission on Blackbaord.
+4. Insert the screenshot into a Word document under the heading that matches the task name:  
+   - Example: **Task 1**, **Task 2**, **Task 3**, etc.  
+5. After completing all tasks, convert the Word document to PDF.  Name the PDF file using your `yoursenecausername.pdf`
+6. Submit the PDF file as your final lab submission on Blackbaord.
 
+
+----
   
 ## INVESTIGATION 1: CREATING A SIMPLE CLASS
 
@@ -78,7 +94,9 @@ print(my_dog.bark())  # Output: Buddy says woof!
 ```
 Let's now do some hands on activities.
 
-### lab8a - Using a class
+----
+
+### Task 1 - Using a class
 **Objective:** To create an object from a Python class and call one of its methods.<br>
 
 **Instructions:** 
@@ -93,7 +111,9 @@ Let's now do some hands on activities.
 - Run the file using the command: `python ./dog_tester.py`.
 - Take a clear screenshot of the `main()` from `dog_tester.py` and the output in the terminal.
 
-## lab8b - Implementing a class method and testing the class
+----
+
+## Task 2 - Implementing a class method and testing the class
 **Objective:** To define a method inside a class and test the class from a separate file.<br>
 
 **Instructions:** 
@@ -110,8 +130,9 @@ Let's now do some hands on activities.
 - Run the script from command line using the command: `python ./cylinder_tester.py`.
 - Take a clear screenshot of `volume()` method, `main()` form `cylinder_tester.py` and the output.
 
+----
 
-## lab8c - Class CashRegister: Adding instance variable and method in an existing class to extend the functionality
+## Task 3 - Class CashRegister: Adding instance variable and method in an existing class to extend the functionality
 **Objective:** To extend an existing class by adding a new method and modifying instance variables, and to test the class using a separate script.<br>
 
 **Instructions:** 
@@ -138,7 +159,9 @@ This allows a cashier to quickly correct a mistake.
 - Run the script from command line using the command: `python ./cashregister_tester.py`.
 - Take a clear screenshot of undo() method, main() from `cashregister_tester.py` and the output.
 
-## lab8d - Managing multiple objects
+----
+
+## Task 4 - Managing multiple objects
 **Objective:** To work with multiple objects of the same class and perform operations on them.<br>
 
 **Instructions:** 
@@ -153,9 +176,11 @@ This allows a cashier to quickly correct a mistake.
 - Run the script from command line using the command: `python ./store_tester.py`.
 - Take a clear screenshot of main() and the output.
 
+----
+
 ## INVESTIGATION 2 — CLASS VARIABLES AND MODELING A REAL WORLD CLASS
 
-## lab8e - CashRegister: Adding tax functionality
+## Task 5 - CashRegister: Adding tax functionality
 **Objective:** To extend an existing class by adding a class variable and a class method, and calculate total price including tax without modifying the original total.<br>
 
 So far, your `CashRegister` only keeps track of the total price without tax. Now, we want to be able to calculate the total price after applying tax. 
@@ -179,7 +204,9 @@ A class variable is shared by all instances of a class, making it perfect for a 
   - The `main()` function in your tester file.
   - Output displaying total price before and after tax.
 
-## lab8f - CashRegister: Storing items and printing a receipt
+----
+
+## Task 6 - CashRegister: Storing items and printing a receipt
 **Objective:** To extend the CashRegister class so that it can store item names and individual prices, and print a detailed receipt with totals.<br>
 
 Currently, the `CashRegister` class only keeps a running total of prices and a count of items.
@@ -220,15 +247,17 @@ self._items.append((itemName, itemPrice))
   - Updated CashRegister class with the new instance varaiables and methods.
   - The `main()` function in your tester file.
   - Output displaying the resceipt.
-    
+
+  ----
+  
 ## Lab 8 Sign-Off
-- Submit a PDF on Blackboard, named using your Seneca username (e.g., yoursenecausername.pdf).
+- Submit a PDF on Blackboard, named using your Seneca username (e.g., **yoursenecausername.pdf**).
 - The PDF must include screenshots of the following scripts and their terminal output, clearly showing your GitHub username.
-  - lab8a.py
-  - lab8b.py
-  - lab8c.py
-  - lab8d.py
-  - lab8e.py
-  - lab8f.py
+    - task1.py
+    - task2.py
+    - task3.py
+    - task4.py
+    - task5.py
+    - task6.py
 - Ensure the code and output are clearly readable. Screenshots should be high-resolution (minimum 800x600) and not blurry.
 - Blurry or unreadable submissions will be returned for redo. Resubmissions will only be graded as Satisfactory with a grade of 0, provided the work is satisfactory.
