@@ -262,3 +262,4 @@ self._items.append((itemName, itemPrice))
     - task6.py
 - Ensure the code and output are clearly readable. Screenshots should be high-resolution (minimum 800x600) and not blurry.
 - Blurry or unreadable submissions will be returned for redo. Resubmissions will only be graded as Satisfactory with a grade of 0, provided the work is satisfactory.
+- Up to 50% of marks can be deducted if work is not presented in a professional manner, and the work does not follow the guidleines presented in this document.
