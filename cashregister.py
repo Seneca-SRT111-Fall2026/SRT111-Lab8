@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # Author: 
 # Date: 
 # Purpose: Models a cash register used in supermarkets.
