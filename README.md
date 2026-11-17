@@ -50,7 +50,7 @@ For every file created in this lab (class files **and** tester files), include t
 
 ## Setting Up: One Folder for the Whole Lab
 
-The tester files import the classes with lines such as `from dog import Dog`. This works only when the class file and the tester file are in the **same folder** and you run the tester **from that folder**. For this reason, use **VS Code** for both parts of this lab (not Jupyter Lab), and keep **all** Lab 8 files in one folder.
+The tester files import the classes with lines such as `from dog import Dog`. This works only when the class file and the tester file are in the **same folder** and you run the tester **from that folder**. For this reason keep **all** Lab 8 files in one folder.
 
 - Open your local Git repository `SRT111F2026` on your computer.
 - Create a new folder named `Lab08` inside the repository (capital `L`, then a zero: `Lab08`).
