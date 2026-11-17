@@ -1,265 +1,828 @@
-# Lab 8: Classes and Objects
-**Weight:** 2% <br>
-**Work Type:** Individual <br>
-Environment: GitHub Codespaces
-**Submission Format:** Screenshots
+<h1 align="center">SRT111 Lab 8 - Fall 2026</h1>
 
-----
+<p align="center">
+<b>Prepared by:</b> Tiayyba Riaz<br>
+<b>Total Marks:</b> 10<br>
+<b>Percentage Towards Final Grade:</b> 2%
+</p>
 
-## Introduction
+Python is an **object-oriented** language: almost everything you have used so far, such as strings, lists, dictionaries and even Pandas DataFrames, is an **object**. An object holds some **data** and has **methods** that work on that data. Objects are made from **classes**. A class is a blueprint: it says which data (instance variables) each object stores and which methods it has.
 
+In the first part of this lab, you will **use** a class that is already written, **complete** a method inside a class, and **extend** the `CashRegister` class from the Week 11 slides with an `undo()` method. In the second part, you will work with **several objects** of the same class, see what happens when two variables **refer** to the same object, add a **class variable** for the tax rate, and finally use a **list of tuples** inside a new class to print a store receipt.
 
-In this lab, you will create six Python scripts. All scripts must be written in GitHub Codespaces.<br>
+In this lab, every class lives in its own file (for example `dog.py`), and you test it from a separate **tester** file (for example `task1.py`) that imports the class. You will continue to use a `main()` function in every tester, as practised in Labs 4 to 7.
 
-Python is an object-oriented programming language, which means that almost everything you work with — numbers, strings, lists, and even functions — is treated as an object. Objects are created from classes, which serve as blueprints that define the data (attributes) the object stores and the behavior (methods) it can perform.
+The lab is divided into two components:
 
-This lab  is designed to introduce you to the core concepts of object-oriented programming in Python through hands-on activities. You will start by learning how to create simple classes and objects, define attributes and methods, and use the classes by creating class objects.
+- **Part A: In-Class Lab** (must be completed during the scheduled lab period and demonstrated to the professor for grading).
+- **Part B: Take-Home Lab** (can be completed independently after the scheduled class and is submitted as a link to your GitHub repository).
 
-----
+## Academic Integrity and Use of AI
 
-# Lab Objectives
-- Understand what classes and objects are in Python.
-- To be able to use a pre-defined class by creating class objects and calling class methods.
-- Create and use your own classes.
-- Define attributes (variables) and methods (functions) inside a class.
-- Understand the instance variables, self parameter, and constructor function.
-- Create and manipulate multiple objects from the same class.
-  
-----
+This lab is intended to assess your individual understanding of Python programming. You may use AI tools (e.g., ChatGPT, Copilot, Gemini) to help explain concepts, syntax, or error messages. However, all submitted code must be your own work, and you must be able to explain your solution if asked by the professor.
 
-# Submission Instructions
-For each task:
-1. Write the script in Codespaces.  
-2. Run the script from the **terminal**.  
-3. Take a screenshot that clearly shows:  
-   - Your **code** in the editor.  
-   - The **terminal output**, including your **username** visible in the terminal.  
-4. Insert the screenshot into a Word document under the heading that matches the task name:  
-   - Example: **Task 1**, **Task 2**, **Task 3**, etc.
-   - You may need to capture multiple screenshots for each question, please ensure that you put them in the right order under the headings.
-5. After completing all tasks, convert the Word document to PDF.  Name the PDF file using your `yoursenecausername.pdf`
-6. Submit the PDF file as your final lab submission on Blackbaord.
+Submitting copied, shared, or AI-generated solutions as your own work may result in a grade of zero and may be handled according to the College Academic Integrity Policy.
 
+## Lab Objectives
 
-----
-  
-## INVESTIGATION 1: CREATING A SIMPLE CLASS
+By the end of this lab, you should be able to:
 
-In Python, a class is a blueprint for creating objects. It defines a set of attributes (data) and methods (functions) that the objects created from the class will have.
-Let’s look at a step-by-step example of how to create a simple class.
+- Explain the difference between a class and an object.
+- Create objects from a class and call their methods with dot notation.
+- Import a class from another file into a tester program.
+- Explain what the constructor `__init__`, the `self` parameter and instance variables do.
+- Complete and add methods in an existing class, and use a list as an instance variable.
+- Create several objects of the same class and explain why each one has its own data.
+- Explain what happens when two variables refer to the same object.
+- Use a class variable that is shared by all objects of a class.
+- Store items as a list of tuples inside a class and print a formatted receipt.
+- Test a class by printing actual and expected results.
 
-**Defining a Class** <br>
-A class is defined using the `class` keyword, followed by the class name and a colon:
-```Python
-class Dog:
-    pass
-```
-The pass statement is a placeholder—it means “do nothing for now,” allowing the class definition to exist without any content yet.
+## Required Comment Header
 
-**Adding Attributes**<br>
-Attributes are variables that belong to the class.
-They are usually defined inside a special method called `__init__()`, which runs automatically when a new object is created.
+For every file created in this lab (class files **and** tester files), include the following comment block at the top of the file. The starter files already have it: fill in your name, the date and, where it is empty, the purpose.
 
-The self parameter is a reference to the current object being created or used.
-- It allows each object to store its own separate data.
-- Using self.attribute_name ensures that the attribute belongs to this specific object, not to the class as a whole or to another object.
-- Think of self as a way for the object to keep track of its own data.
-```Python
-class Dog:
-    def __init__(self, name, breed):
-        self._name = name    # Each dog object has its own name
-        self._breed = breed  # Each dog object has its own breed
-```
-Here self._name and self._breed are instance variables (attributes) belonging to the object.
-
-**Adding Methods**<br>
-Methods are functions that belong to a class. They typically perform actions using the object’s data. All class methods have access to the instance variables of the object via self.
-```Python
-class Dog:
-    def __init__(self, name, breed):
-        self._name = name
-        self._breed = breed
-
-    def bark(self):
-        return f"{self._name} says woof!"
-```
-**Creating and Using an Object**<br>
-You can create an object (an instance of the class) by calling the class name like a function, with the required arguments:
-```Python
-my_dog = Dog("Buddy", "Golden Retriever")
+```python
+# Author: Your Name
+# Date: YYYY-MM-DD
+# Purpose: Brief description of what the program does.
 ```
 
-You can access an object’s methods or attributes using dot notation:
-```Python
-print(my_dog.bark())  # Output: Buddy says woof!
+## Setting Up: One Folder for the Whole Lab
+
+The tester files import the classes with lines such as `from dog import Dog`. This works only when the class file and the tester file are in the **same folder** and you run the tester **from that folder**. For this reason, use **VS Code** for both parts of this lab (not Jupyter Lab), and keep **all** Lab 8 files in one folder.
+
+- Open your local Git repository `SRT111F2026` on your computer.
+- Create a new folder named `Lab08` inside the repository (capital `L`, then a zero: `Lab08`).
+- Open the `Lab08` folder in VS Code. Create every file for Part A and Part B in this folder.
+- Run each tester from the VS Code terminal, inside `Lab08`, for example: `python task1.py` (on a Mac, use `python3` if `python` is not found).
+
+You can type the starter code from this page, or download the starter files from Blackboard (Lab 8 starter files) and save them in `Lab08`.
+
+<details markdown="1">
+
+<summary><b>Common Errors in This Lab</b></summary>
+
+<br>
+
+| Error message | Most likely cause |
+|---|---|
+| `ModuleNotFoundError: No module named 'dog'` | `dog.py` is not in the same folder as the tester, or the terminal is not in the `Lab08` folder. Check the file name (all lower case). |
+| `TypeError: ... takes 0 positional arguments but 1 was given` | You forgot `self` in the method definition: `def click(self):` |
+| `NameError: name '_value' is not defined` | You forgot `self.` in front of an instance variable inside a method. |
+| `<bound method ...>` is printed | You forgot the `()` when calling a method: `tally.getValue()` |
+| `<__main__.Dog object at 0x...>` is printed | You printed the object itself. Call one of its methods instead. |
+| `None` is printed | The method has no `return` statement (or still contains `pass`). |
+
+</details>
+
+---
+
+## Part A - In-Class Lab [30% of Lab Marks]
+
+Complete all assigned in-class tasks during your scheduled lab.
+
+**Part A Marking (3 marks):**
+
+| Task | Marks |
+|---|---|
+| Task 1 - Using a Class | 1.0 |
+| Task 2 - Completing a Method | 1.0 |
+| Task 3 - Adding undo() to CashRegister | 1.0 |
+| **Total** | **3** |
+
+- Complete Part A in VS Code, in your `Lab08` folder (see [Setting Up](#setting-up-one-folder-for-the-whole-lab)).
+- Demonstrate your completed work to the professor before leaving the lab.
+- The professor may ask you to explain portions of your code.
+- No submission is required for Part A. Keep the files in `Lab08`: Part B uses `cashregister.py` from Task 3.
+
+<details markdown="1">
+
+<summary><b>Quick Reference: Classes and Objects</b></summary>
+
+<br>
+
+A **class** is defined with the keyword `class`. Class names start with an upper-case letter, with an upper-case letter for each new word (`TallyCounter`, `CashRegister`).
+
+```python
+class TallyCounter:
+    def __init__(self):             # the constructor
+        self._value = 0             # an instance variable
+
+    def click(self):                # a method
+        self._value = self._value + 1
+
+    def getValue(self):
+        return self._value
 ```
-Let's now do some hands on activities.
 
-----
+| Word | Meaning |
+|---|---|
+| **constructor** `__init__` | A special method that runs automatically every time a new object is created. It creates the instance variables. |
+| **`self`** | The first parameter of every method. It is the object the method is working on. |
+| **instance variable** | A variable that belongs to one object, written `self._name`. Every object has its own copy. |
+| **`_` (underscore)** | Means "do not use this variable from outside the class". Use the methods instead. |
 
-### Task 1 - Using a class
-**Objective:** To create an object from a Python class and call one of its methods.<br>
+**Using a class from another file:**
 
-**Instructions:** 
+| Code | Meaning |
+|---|---|
+| `from dog import Dog` | Import the class `Dog` from the file `dog.py` (no `.py` in the import) |
+| `dog1 = Dog("Buddy", "Golden Retriever")` | Create an object. The arguments are passed to `__init__` (you never pass `self`). |
+| `dog1.bark()` | Call a method on the object: object name, dot, method name, brackets |
+| `print(dog1.bark())` | Print the value that the method **returns** |
 
-- Review the code in the file `dog.py`.
-  - Understand the Dog class definition and how instance variables are initialized inside the constructor (__init__ method).
-- Open the file `dog_tester.py`.
-  - Notice that the Dog class has already been imported for you.
-- Inside the main() function:
-  - Create a new object of the Dog class (for example, my_dog = Dog("Buddy", "Golden Retriever")).
-  - Call the bark() method for this object.
-- Run the file using the command: `python ./dog_tester.py`.
-- Take a clear screenshot of the `main()` from `dog_tester.py` and the output in the terminal.
+</details>
 
-----
+### Task 1 - Using a Class
 
-## Task 2 - Implementing a class method and testing the class
-**Objective:** To define a method inside a class and test the class from a separate file.<br>
+**Objective:** Practice creating objects from a class that is already written and calling their methods.
 
-**Instructions:** 
+**Instructions:**
 
-- Open the file `cylinder.py`.
-  - A class named Cylinder has already been created for you.
-  - Complete the volume() method so that it calculates and returns the volume of the cylinder. (Hint: Volume = π × radius² × height)
-- Create a new file called `cylinder_tester.py`
-  - Add comments in `cylinder_tester.py` to explain the purpose of this file.
-  - Import the Cylinder class using an import statement.
-  - Define the `main()` function.
-  - Inside `main()`, create an object of the Cylinder class by passing the required arguments (e.g., radius and height).
-  - Call the `volume()` method, store the volume in a variable and print it.
-- Run the script from command line using the command: `python ./cylinder_tester.py`.
-- Take a clear screenshot of `volume()` method, `main()` form `cylinder_tester.py` and the output.
+- Create a file named `dog.py` and copy the following class into it. This class is complete: do not change it, but read the comments carefully. Note how the constructor stores the name and breed in instance variables, and how each method uses them through `self`.
 
-----
+  ```python
+  # Author: Your Name
+  # Date: YYYY-MM-DD
+  # Purpose: The Dog class. Each Dog object stores a name and a breed.
 
-## Task 3 - Class CashRegister: Adding instance variable and method in an existing class to extend the functionality
-**Objective:** To extend an existing class by adding a new method and modifying instance variables, and to test the class using a separate script.<br>
+  class Dog:
+      # __init__ is the constructor. It runs automatically every time
+      # a new Dog object is created, for example: Dog("Buddy", "Golden Retriever")
+      def __init__(self, name, breed):
+          # self is the object being created.
+          # self._name and self._breed are instance variables:
+          # every Dog object gets its own copy of them.
+          self._name = name
+          self._breed = breed
 
-**Instructions:** 
+      def bark(self):
+          # A method can use the object's instance variables through self.
+          return self._name + " says woof!"
 
-During our lecture session, we implemented a `CashRegister` that could add items and calculate the total.
-Now, suppose the `CashRegister` needs to support an `undo()` method that removes the most recently added item.
-This allows a cashier to quickly correct a mistake.
+      def getName(self):
+          return self._name
 
-- Open the file `cashregister.py.`
-  - Complete the undo function in `cashregister.py`.
-    - The `undo()` method should remove the most recently added item and adjust the total accordingly.
-    - You need to use an additional instance variable such as a list to store added items.
-- Create a new file called `cashregister_tester.py`
-  - Add comments in `cashregister_tester.py` to explain the purpose of this file.
-- In `cashregister_tester.py`:
-  - Import `CashRegister`class.
-  - Define the `main()` function.
-  - Inside the `main()`:
-    - Create an object of the `CashRegister` class.
-    - Add a four items using the `addItem()` method.
-    - Print the total after adding items.
-    - Call the `undo()` method twice to test it.
-    - Print the total again to confirm that the last addition(s) were undone.
-- Run the script from command line using the command: `python ./cashregister_tester.py`.
-- Take a clear screenshot of undo() method, main() from `cashregister_tester.py` and the output.
+      def getBreed(self):
+          return self._breed
+  ```
 
-----
+- Create a file named `task1.py` (the **tester** for the `Dog` class) and copy the following starter code into it. The first dog is done for you as an example:
 
-## Task 4 - Managing multiple objects
-**Objective:** To work with multiple objects of the same class and perform operations on them.<br>
+  ```python
+  # Author: Your Name
+  # Date: YYYY-MM-DD
+  # Purpose: Tester for the Dog class (Task 1).
 
-**Instructions:** 
+  from dog import Dog
 
-- Create a new file called `store_tester.py`.
-- Import the `CashRegister` class.
-- In the `main()`:
-  - Create two CashRegister objects, for example register1 and register2.
-  - Add a few items to each register using addItem().
-  - Print the totals for each register.
-- Compare the two totals and print which register collected more money.
-- Run the script from command line using the command: `python ./store_tester.py`.
-- Take a clear screenshot of main() and the output.
 
-----
+  def main():
+      dog1 = Dog("Buddy", "Golden Retriever")     # done for you: creates a Dog object
+      print(dog1.bark())                          # done for you: calls the bark() method
 
-## INVESTIGATION 2 — CLASS VARIABLES AND MODELING A REAL WORLD CLASS
+      # 1. Create a second Dog object named "Luna" of breed "Husky", and store it in dog2
+      # 2. Print what dog2 says (call bark() on dog2)
+      # 3. Print the name and breed of dog2 like this: Luna is a Husky
+      #    (call getName() and getBreed() on dog2)
 
-## Task 5 - CashRegister: Adding tax functionality
-**Objective:** To extend an existing class by adding a class variable and a class method, and calculate total price including tax without modifying the original total.<br>
 
-So far, your `CashRegister` only keeps track of the total price without tax. Now, we want to be able to calculate the total price after applying tax. 
-A class variable is shared by all instances of a class, making it perfect for a constant like TAX_RATE. A class method will calculate the total including tax using the class variable.
+  main()
+  ```
 
-**Instructions:** 
-- Open your previous `cashregister.py` file.
-- Add a class variable to the CashRegister class to store the tax rate.
-  - Example: TAX_RATE = 0.13 (13% default).
-- Remember: this is a class variable, not an instance variable.
-- Implement a class method `getTotalWithTax()` that:
-  - Accepts self as a parameter.
-  - Calculates the total price including tax.
-  - Returns the total with tax. Important: Do not update `_totalPrice`. The original total should remain unchanged.
-  - Update your tester script (cashregister_tester.py) to:
-    - Call the new `getTotalWithTax()` method on your `CashRegister` object.
-    - Print both the original total and the total including tax.
-- Run the script from command line using the command: `python ./cashregister_tester.py`.
-- Take a clear screenshot showing:
-  - updated CashRegister class with the new class variable and method.
-  - The `main()` function in your tester file.
-  - Output displaying total price before and after tax.
+- Complete `main()` by following the numbered comments.
+- Run your script with `python task1.py` and verify the output.
 
-----
+**Expected Output:**
 
-## Task 6 - CashRegister: Storing items and printing a receipt
-**Objective:** To extend the CashRegister class so that it can store item names and individual prices, and print a detailed receipt with totals.<br>
-
-Currently, the `CashRegister` class only keeps a running total of prices and a count of items.
-This is not enough to print a proper receipt that shows each item’s name and price.
-In this activity, you will re-write the class to store item information individually and modify the methods accordingly.
-
-**Instructions:** 
-- Open your previous `cashregister.py` file.
-- Update the constructor (__init__) of the CashRegister class.
-  - Add instance variable(s) to store item names and their prices.
-  - You may choose one of the following approaches:
-    - Two parallel lists: one for names, one for prices.
-    - A dictionary with item names as keys and prices as values.
-    - A list of tuples.
-  - Initialize these variable(s) to empty (e.g., empty list or dictionary).
-- Update the **addItem()** method:
-- Modify it to accept two parameters: itemName and itemPrice.
-- Store the item information in the instance variable(s) defined above
-- Example for list of tuples:
-```Python
-self._items.append((itemName, itemPrice))
+```text
+Buddy says woof!
+Luna says woof!
+Luna is a Husky
 ```
-- Update the **getTotal()** and **getCount()** methods (if needed):
-  - Ensure that getTotal() calculates the total based on the individual stored prices, rather than relying on a running total.
-  - Ensure that getCount() correctly returns the number of items stored.
-- Run the script from command line using the command: `python ./cashregister_tester.py`.
-- Implement a **printReceipt()** method that prints:
-  - Each item’s name and price on a separate line.
-  - The total price at the end.
-     ``` text
-    Apple       2.50
-    Bread       3.00
-    Milk        4.20
-    -----------------
-    Total:     9.70
-    ```
-- Take a clear screenshot showing:
-  - Updated CashRegister class with the new instance varaiables and methods.
-  - The `main()` function in your tester file.
-  - Output displaying the resceipt.
 
-  ----
-  
-## Lab 8 Sign-Off
-- Submit a PDF on Blackboard, named using your Seneca username (e.g., **yoursenecausername.pdf**).
-- The PDF must include screenshots of the following scripts and their terminal output, clearly showing your GitHub username.
-    - task1.py
-    - task2.py
-    - task3.py
-    - task4.py
-    - task5.py
-    - task6.py
-- Ensure the code and output are clearly readable. Screenshots should be high-resolution (minimum 800x600) and not blurry.
-- Blurry or unreadable submissions will be returned for redo. Resubmissions will only be graded as Satisfactory with a grade of 0, provided the work is satisfactory.
-- Up to 50% of marks can be deducted if work is not presented in a professional manner, and the work does not follow the guidleines presented in this document.
+> **Think about it:** `dog1` and `dog2` were made from the same class, but `dog1.bark()` and `dog2.bark()` print different names. Where is each dog's name stored? What would `print(dog1)` show instead, and why?
+
+<details markdown="1">
+
+<summary><b>Quick Reference: Writing a Method</b></summary>
+
+<br>
+
+A method is written like a function, with two differences: it is written **inside** the class, and its first parameter is **`self`**. Inside the method, use `self.` to read the object's instance variables:
+
+```python
+def getValue(self):
+    return self._value          # self._value, not just _value
+```
+
+A method that gives back an answer must **`return`** it. A method without `return` gives back `None`.
+
+To use **pi** in a calculation, import the `math` module at the top of the file and write `math.pi` (do not type `3.14`). Powers use `**`: `r ** 2` is r squared. `round(x, 2)` rounds a number to 2 decimal places.
+
+</details>
+
+### Task 2 - Completing a Method
+
+**Objective:** Practice writing a method that uses the object's instance variables, and test the class from a separate file.
+
+**Instructions:**
+
+- Create a file named `cylinder.py` and copy the following starter code into it. `getSurfaceArea()` is done for you as an example:
+
+  ```python
+  # Author: Your Name
+  # Date: YYYY-MM-DD
+  # Purpose: The Cylinder class. Each Cylinder object stores a radius and a height.
+
+  import math
+
+
+  class Cylinder:
+      def __init__(self, radius, height):
+          self._radius = radius
+          self._height = height
+
+      def getRadius(self):
+          return self._radius
+
+      def getHeight(self):
+          return self._height
+
+      def getSurfaceArea(self):
+          # done for you as an example
+          # Surface area = 2 * pi * radius ** 2 + 2 * pi * radius * height
+          top = math.pi * self._radius ** 2
+          side = 2 * math.pi * self._radius * self._height
+          return 2 * top + side
+
+      def getVolume(self):
+          # Volume = pi * radius ** 2 * height
+          # 1. Calculate the volume with math.pi, self._radius and self._height,
+          #    and store it in a variable named volume
+          # 2. Return volume
+          # (Delete the word pass below when you add your code.)
+          pass
+  ```
+
+- Complete `getVolume()` by following the numbered comments. Use `getSurfaceArea()` as your example.
+- Create a file named `task2.py` (the tester for the `Cylinder` class) and copy the following starter code into it:
+
+  ```python
+  # Author: Your Name
+  # Date: YYYY-MM-DD
+  # Purpose: Tester for the Cylinder class (Task 2).
+
+  from cylinder import Cylinder
+
+
+  def main():
+      can = Cylinder(3, 10)                                       # done for you: radius 3, height 10
+      print("Can radius:", can.getRadius(), "height:", can.getHeight())   # done for you
+      print("Can surface area:", round(can.getSurfaceArea(), 2))  # done for you
+
+      # 1. Print "Can volume:" and the volume of can, rounded to 2 decimal places
+      # 2. Create a second Cylinder with radius 1 and height 5, and store it in pipe
+      # 3. Print "Pipe volume:" and the volume of pipe, rounded to 2 decimal places
+
+
+  main()
+  ```
+
+- Complete `main()` by following the numbered comments.
+- Run your script with `python task2.py` and verify the output.
+
+**Expected Output:**
+
+```text
+Can radius: 3 height: 10
+Can surface area: 245.04
+Can volume: 282.74
+Pipe volume: 15.71
+```
+
+> **Think about it:** `getVolume()` has only one parameter, `self`, but it still knows the radius and height. How? When you call `pipe.getVolume()`, what is `self`?
+
+<details markdown="1">
+
+<summary><b>Quick Reference: A List as an Instance Variable</b></summary>
+
+<br>
+
+An instance variable can hold a list. Create it in the constructor, and use list methods on it through `self`:
+
+| Code | Meaning |
+|---|---|
+| `self._prices = []` | Create an empty list (in `__init__`) |
+| `self._prices.append(2.5)` | Add `2.5` to the end of the list |
+| `last = self._prices.pop()` | Remove the **last** value from the list and store it in `last` |
+| `len(self._prices)` | The number of values in the list (`0` when the list is empty) |
+
+`return` on its own ends a method straight away, without giving back a value:
+
+```python
+if len(self._prices) == 0:
+    print("Nothing to undo")
+    return                      # stop here: the code below is skipped
+```
+
+</details>
+
+### Task 3 - Adding undo() to CashRegister
+
+**Objective:** Practice extending an existing class with a new instance variable and a new method, and test it by comparing actual and expected results.
+
+In the Week 11 slides, we wrote a `CashRegister` class that can add items and work out the total. Now the cashier needs an `undo()` method that removes the most recently added item, to quickly correct a mistake. To know **which** price to remove, the register must remember every price it was given, so you will add a list of prices to the class.
+
+**Instructions:**
+
+- Create a file named `cashregister.py` and copy the following starter code into it. It is the `CashRegister` class from the slides with some new numbered comments:
+
+  ```python
+  # Author: Your Name
+  # Date: YYYY-MM-DD
+  # Purpose: The CashRegister class from the Week 11 slides, extended with an undo() method.
+
+  class CashRegister:
+      def __init__(self):
+          self._itemCount = 0
+          self._totalPrice = 0.0
+          # 1. Add an instance variable named _prices that starts as an empty list
+
+      def addItem(self, price):
+          self._itemCount = self._itemCount + 1
+          self._totalPrice = self._totalPrice + price
+          # 2. Add price to the end of the _prices list (use append())
+
+      def getTotal(self):
+          return self._totalPrice
+
+      def getCount(self):
+          return self._itemCount
+
+      def clear(self):
+          self._itemCount = 0
+          self._totalPrice = 0.0
+          # 3. Make the _prices list empty again
+
+      def undo(self):
+          # Removes the most recently added item.
+          # 4. If the _prices list is empty (its len() is 0), print "Nothing to undo" and return
+          # 5. Otherwise, remove the last price from the list with pop() and store it in lastPrice
+          # 6. Subtract lastPrice from _totalPrice, and subtract 1 from _itemCount
+          # (Delete the word pass below when you add your code.)
+          pass
+  ```
+
+- Complete the class by following the numbered comments. Note step 3: `clear()` must also empty the list, or `undo()` would remove a price that was already cleared.
+- Create a file named `task3.py` (the tester for `CashRegister`) and copy the following starter code into it:
+
+  ```python
+  # Author: Your Name
+  # Date: YYYY-MM-DD
+  # Purpose: Tester for the undo() method of the CashRegister class (Task 3).
+
+  from cashregister import CashRegister
+
+
+  def main():
+      register1 = CashRegister()
+      register1.addItem(1.95)                     # done for you
+      # 1. Add three more items to register1: 2.50, 4.25 and 3.00
+
+      print("Count:", register1.getCount(), "Expected: 4")                   # done for you
+      print("Total:", round(register1.getTotal(), 2), "Expected: 11.7")      # done for you
+
+      # 2. Call undo() on register1 two times
+      # 3. Print the count and total again, like above. The expected values are now 2 and 4.45
+      # 4. Call clear() on register1, then print the count (expected: 0)
+      # 5. Call undo() on register1 one more time. It should print "Nothing to undo"
+
+
+  main()
+  ```
+
+- Complete `main()` by following the numbered comments.
+- Run your script with `python task3.py`. On every line, the actual value must match the expected value.
+
+**Expected Output:**
+
+```text
+Count: 4 Expected: 4
+Total: 11.7 Expected: 11.7
+Count: 2 Expected: 2
+Total: 4.45 Expected: 4.45
+Count: 0 Expected: 0
+Nothing to undo
+```
+
+> **Think about it:** Printing the actual value next to the expected value is how the slides test a class ("unit testing"). If a line did not match, how would it help you find the mistake?
+
+---
+
+## Part B - Take-Home Lab [70% of Lab Marks]
+
+Complete the following tasks independently after the scheduled lab using VS Code, in the same `Lab08` folder as Part A.
+
+**Part B Marking (7 marks):**
+
+| Task | Marks |
+|---|---|
+| Task 4 - Many Objects and Object References | 2.0 |
+| Task 5 - A Class Variable for the Tax Rate | 2.0 |
+| Task 6 - Printing a Receipt with a List of Tuples | 3.0 |
+| Submission requirements (exact repo, folder and file names, comment headers, code pushed to GitHub) | up to 100% deduction may apply |
+| **Total** | **7** |
+
+> Marks are awarded only when the required classes, methods and variables are used as instructed. Correct output alone is not enough.
+
+**Before You Begin:**
+
+- Make sure your Part A files are in `SRT111F2026/Lab08`. Tasks 4 and 5 use your `cashregister.py` from Task 3, so it must have a working `undo()`.
+- Use these file names **exactly**, all in lower case: `task4.py`, `task5.py`, `itemregister.py`, `task6.py`.
+
+**For each task:**
+
+- Run the tester from the `Lab08` folder using the VS Code terminal and compare your output with the expected output.
+- Each tester asks you to answer a question in a **comment** at the bottom of the file. These answers are marked, so do not skip them.
+- No screenshots or PDF are required for this lab. Your code in GitHub is your submission.
+
+<details markdown="1">
+
+<summary><b>Quick Reference: Many Objects and Object References</b></summary>
+
+<br>
+
+Every call to the constructor makes a **new** object with its **own** instance variables:
+
+```python
+register1 = CashRegister()      # one object
+register2 = CashRegister()      # a second, separate object
+register1.addItem(1.95)         # changes register1 only
+```
+
+An object can be passed to a function like any other value. Inside the function, call its methods as usual:
+
+```python
+def printTotal(register):
+    print(register.getTotal())
+```
+
+A variable does not hold the object itself. It holds a **reference**: where the object is stored in memory. `b = a` does **not** make a new object. It gives the **same** object a second name:
+
+```python
+reg1 = CashRegister()
+reg2 = reg1                     # no new object is made!
+reg2.addItem(5.00)
+print(reg1.getCount())          # 1  (same object)
+```
+
+</details>
+
+### Task 4 - Many Objects and Object References
+
+**Objective:** Practice creating several objects of the same class, passing objects to functions, and seeing what happens when two variables refer to the same object.
+
+**Instructions:**
+
+- Create a file named `task4.py` and copy the following starter code into it:
+
+  ```python
+  # Author: Your Name
+  # Date: YYYY-MM-DD
+  # Purpose: Uses two CashRegister objects and shows how object references work (Task 4).
+
+  from cashregister import CashRegister
+
+
+  def printRegister(label, register):
+      # done for you: prints one register's item count and total
+      print(label, "- items:", register.getCount(), "total:", round(register.getTotal(), 2))
+
+
+  def compareRegisters(register1, register2):
+      # 1. Compare the totals of the two registers (use getTotal()) and print one of:
+      #    "Register 1 collected more money"
+      #    "Register 2 collected more money"
+      #    "Both registers collected the same amount"
+      # (Delete the word pass below when you add your code.)
+      pass
+
+
+  def main():
+      register1 = CashRegister()                  # done for you
+      register1.addItem(3.50)
+      register1.addItem(2.25)
+      register1.addItem(10.00)
+
+      # 2. Create a second CashRegister object, store it in register2,
+      #    and add two items to it: 5.00 and 7.25
+
+      printRegister("Register 1", register1)      # done for you
+      # 3. Print register2 the same way, with the label "Register 2"
+      # 4. Call compareRegisters() with register1 and register2
+
+      print()
+      print("--- References ---")
+      register3 = register1                       # done for you: no new object is made!
+      register3.addItem(1.00)                     # done for you
+      # 5. Print register1 again with printRegister(), using the label "Register 1"
+
+
+  main()
+
+  # Reflection (answer in 2-4 sentences):
+  # The program added an item to register3, but register1 changed. Explain why.
+  # How would you change the line register3 = register1 to get a separate, empty register?
+  ```
+
+- Complete `compareRegisters()` and `main()` by following the numbered comments. Do not change the code that is done for you.
+- At the **bottom** of `task4.py`, answer the reflection question in a comment of 2-4 sentences.
+- Run your script with `python task4.py` and verify the output.
+
+**Expected Output:**
+
+```text
+Register 1 - items: 3 total: 15.75
+Register 2 - items: 2 total: 12.25
+Register 1 collected more money
+
+--- References ---
+Register 1 - items: 4 total: 16.75
+```
+
+> **Think about it:** Change the items so that both registers have the same total, and run the script again. Does `compareRegisters()` print the third message? Change them back before you submit.
+
+<details markdown="1">
+
+<summary><b>Quick Reference: Class Variables</b></summary>
+
+<br>
+
+An **instance variable** belongs to **one** object (`self._totalPrice`): every register has its own total. A **class variable** belongs to the **class**: there is only **one** copy, shared by all objects. It is defined inside the class but **outside** any method, usually at the top, and it is used with the **class name**:
+
+```python
+class BankAccount:
+    lastAccNum = 1000               # a class variable
+
+    def __init__(self):
+        self._balance = 0           # an instance variable
+        BankAccount.lastAccNum = BankAccount.lastAccNum + 1
+        self._accountNumber = BankAccount.lastAccNum
+```
+
+**Calling one method from another.** Inside a method, call another method of the same object with `self.`, for example `self.getTotal()`.
+
+</details>
+
+### Task 5 - A Class Variable for the Tax Rate
+
+**Objective:** Practice adding a class variable and a new method to an existing class, and see that a class variable is shared by all objects.
+
+So far, `CashRegister` works out the total **without** tax. Every register in the store uses the same tax rate (13% HST in Ontario), so the rate should be stored **once**, in a class variable, not in every object.
+
+**Instructions:**
+
+- Open your `cashregister.py` from Task 3 and make the following changes. Do not remove anything from Task 3.
+  1. Add a class variable `TAX_RATE = 0.13` inside the class, **above** `__init__` (outside any method).
+  2. Add a new method `getTotalWithTax(self)` at the end of the class. It must:
+     - work out the tax: `self.getTotal()` multiplied by `CashRegister.TAX_RATE`,
+     - **return** the total plus the tax.
+  3. `getTotalWithTax()` must **not** change `_totalPrice`. It only calculates and returns a value.
+
+  `getTotalWithTax()` is an ordinary method like `getTotal()`: its first parameter is `self`, and you call it on an object (`register1.getTotalWithTax()`). The only new thing is that it reads a class variable, using the class name.
+
+- Create a file named `task5.py` and copy the following starter code into it:
+
+  ```python
+  # Author: Your Name
+  # Date: YYYY-MM-DD
+  # Purpose: Tests the tax feature of the CashRegister class (Task 5).
+
+  from cashregister import CashRegister
+
+
+  def main():
+      register1 = CashRegister()
+      register1.addItem(20.00)
+      register1.addItem(5.00)
+
+      print("Tax rate:", CashRegister.TAX_RATE)                          # done for you
+      print("Total before tax:", round(register1.getTotal(), 2))         # done for you
+      # 1. Print "Total with tax:" and register1.getTotalWithTax(), rounded to 2 decimal places
+      # 2. Print "Total before tax:" again, to show that getTotalWithTax() did not change the total
+
+      # 3. Create a second CashRegister object, store it in register2, and add one item: 10.00
+      # 4. Print "Register 2 with tax:" and the total with tax of register2, rounded to 2 decimal places
+
+      print()
+      print("--- Tax rate changed to 5% ---")
+      CashRegister.TAX_RATE = 0.05                                       # done for you
+      # 5. Print "Register 1 with tax:" and "Register 2 with tax:" again, rounded to 2 decimal places
+
+
+  main()
+
+  # Reflection (answer in 2-4 sentences):
+  # TAX_RATE was changed only once, but the total with tax changed for BOTH registers. Why?
+  # Why is the tax rate a class variable, while _totalPrice is an instance variable?
+  ```
+
+- Complete `main()` by following the numbered comments.
+- At the **bottom** of `task5.py`, answer the reflection question in a comment of 2-4 sentences.
+- Run your script with `python task5.py` and verify the output. Then run `python task3.py` and `python task4.py` again: they must still give the same output as before.
+
+**Expected Output:**
+
+```text
+Tax rate: 0.13
+Total before tax: 25.0
+Total with tax: 28.25
+Total before tax: 25.0
+Register 2 with tax: 11.3
+
+--- Tax rate changed to 5% ---
+Register 1 with tax: 26.25
+Register 2 with tax: 10.5
+```
+
+> **Think about it:** What would go wrong if the tax rate were an instance variable (`self._taxRate = 0.13` in `__init__`) and the government changed the rate?
+
+<details markdown="1">
+
+<summary><b>Quick Reference: A List of Tuples and Formatted Output</b></summary>
+
+<br>
+
+A **tuple** groups a few values together, for example a name and a price: `("Apple", 2.5)`. A list can hold many tuples:
+
+```python
+items = []
+items.append(("Apple", 2.5))        # note the two sets of brackets
+items.append(("Bread", 3.0))
+```
+
+A `for` loop can take each tuple apart into two variables:
+
+```python
+for name, price in items:
+    print(name, price)
+```
+
+**Lining up columns.** In an f-string, a number after `:` sets the width of the column. `<` lines the text up on the left and `>` on the right. `.2f` shows a number with 2 decimal places:
+
+| Code | Result (dots show the spaces) |
+|---|---|
+| `f"{'Apple':<12}"` | `Apple.......` (12 characters, text on the left) |
+| `f"{2.5:>8.2f}"` | `....2.50` (8 characters, number on the right, 2 decimals) |
+| `"-" * 20` | `--------------------` (20 dashes) |
+
+</details>
+
+### Task 6 - Printing a Receipt with a List of Tuples
+
+**Objective:** Practice storing data in a list of tuples inside a class, working out values from that list, and printing a formatted receipt.
+
+`CashRegister` only keeps a running total and a count. That is not enough to print a receipt that shows the **name** and **price** of every item. In this task, you will complete a new class, `ItemRegister`, that stores every item as a `(name, price)` tuple in a list. Its `addItem()` method takes two parameters, a name and a price.
+
+`ItemRegister` is a **new** class in a **new** file, so your `CashRegister` and Tasks 3 to 5 keep working without changes.
+
+**Instructions:**
+
+- Create a file named `itemregister.py` and copy the following starter code into it. The constructor and `addItem()` are done for you:
+
+  ```python
+  # Author: Your Name
+  # Date: YYYY-MM-DD
+  # Purpose: The ItemRegister class. It stores the name and price of every item and prints a receipt.
+
+  class ItemRegister:
+      def __init__(self):
+          # done for you: one list that holds a (name, price) tuple for every item
+          self._items = []
+
+      def addItem(self, name, price):
+          # done for you: adds one tuple, for example ("Apple", 2.5), to the list
+          self._items.append((name, price))
+
+      def getCount(self):
+          # 1. Return the number of items in the _items list (use len())
+          # (Delete the word pass below when you add your code.)
+          pass
+
+      def getTotal(self):
+          # 2. Add up the prices of all items and return the total:
+          #    - start with total = 0.0
+          #    - loop over the list with:   for name, price in self._items:
+          #    - inside the loop, add price to total
+          #    - after the loop, return total
+          # (Delete the word pass below when you add your code.)
+          pass
+
+      def printReceipt(self):
+          print("RECEIPT")                        # done for you
+          # 3. Loop over the list with:   for name, price in self._items:
+          #    and inside the loop print each item with:
+          #        print(f"{name:<12}{price:>8.2f}")
+          # 4. Print a line of 20 dashes:   print("-" * 20)
+          # 5. Print the number of items:   print("Items:", self.getCount())
+          # 6. Print the total:   print(f"{'Total:':<12}{self.getTotal():>8.2f}")
+          # (Delete the word pass below when you add your code.)
+          pass
+  ```
+
+- Complete `getCount()`, `getTotal()` and `printReceipt()` by following the numbered comments. `getTotal()` must work out the total from the list each time it is called (there is no `_totalPrice` variable in this class).
+- Create a file named `task6.py` (the tester for `ItemRegister`) and copy the following starter code into it:
+
+  ```python
+  # Author: Your Name
+  # Date: YYYY-MM-DD
+  # Purpose: Tester for the ItemRegister class (Task 6).
+
+  from itemregister import ItemRegister
+
+
+  def main():
+      register1 = ItemRegister()
+      register1.addItem("Apple", 2.50)            # done for you
+      # 1. Add two more items to register1: "Bread" for 3.00 and "Milk" for 4.20
+
+      # 2. Print the count and the total, with the expected values, like Task 3:
+      #    Count: 3 Expected: 3
+      #    Total: 9.7 Expected: 9.7
+      #    (round the total to 2 decimal places)
+
+      print()
+      # 3. Call printReceipt() on register1
+
+
+  main()
+
+  # Reflection (answer in 2-4 sentences):
+  # CashRegister keeps a running total in _totalPrice, while ItemRegister works out the total
+  # from its list of items. Code that calls getTotal() works the same way with both classes.
+  # Which idea from the Week 11 slides explains this? Which class would make undo() easier to write, and why?
+  ```
+
+- Complete `main()` by following the numbered comments.
+- At the **bottom** of `task6.py`, answer the reflection question in a comment of 2-4 sentences.
+- Run your script with `python task6.py` and verify the output. The receipt must match **exactly**, including the spaces.
+
+**Expected Output:**
+
+```text
+Count: 3 Expected: 3
+Total: 9.7 Expected: 9.7
+
+RECEIPT
+Apple           2.50
+Bread           3.00
+Milk            4.20
+--------------------
+Items: 3
+Total:          9.70
+```
+
+> **Think about it:** Add a fourth item with a long name, such as `"Orange Juice 2L"`, and run the script again. What happens to the receipt, and which number in the f-string would you change to fix it? Remove the item before you submit.
+
+## Part B Submission
+
+Part B is graded **directly from your GitHub repository**. The structure below must match **exactly**, including upper and lower case. A file with the wrong name or in the wrong folder is treated as missing.
+
+```text
+SRT111F2026/                   <- your repository, with exactly this name
+└── Lab08/                     <- capital L, zero, eight
+    ├── dog.py                 <- Part A, Task 1
+    ├── task1.py               <- Part A, Task 1
+    ├── cylinder.py            <- Part A, Task 2
+    ├── task2.py               <- Part A, Task 2
+    ├── cashregister.py        <- Task 3, with TAX_RATE and getTotalWithTax() from Task 5
+    ├── task3.py               <- Part A, Task 3
+    ├── task4.py
+    ├── task5.py
+    ├── itemregister.py        <- Task 6
+    └── task6.py
+```
+
+- Do **not** rename the repository, and do not put the files in a sub-folder of `Lab08` or at the top level of the repository.
+- Part B needs `cashregister.py` from Part A, so push **all** ten files. Part A files are graded in class and do not change your Part B grade, but Tasks 4 and 5 cannot run without `cashregister.py`.
+- Commit and push the `Lab08` folder to GitHub. Open your repository on github.com in a browser and confirm that all ten files are inside `Lab08`.
+- On Blackboard, submit **only the link** to your repository, for example: `https://github.com/yourgithubusername/SRT111F2026`
+- No screenshots and no PDF are required.
+
+### Part B Grading Checklist
+
+Your repository will be checked against the following list. Use it to check your own work before you submit.
+
+| # | Check |
+|---|---|
+| 1 | The repository is named `SRT111F2026` and contains a folder named `Lab08`. |
+| 2 | `Lab08` contains the ten files with the exact names shown above. |
+| 3 | Every `.py` file starts with the required comment header (Author, Date, Purpose). |
+| 4 | Every tester (`task4.py` to `task6.py`) has a `main()` function, calls `main()`, runs from the `Lab08` folder without errors and prints the expected output. |
+| 5 | `cashregister.py` still has a working `undo()` and `clear()` from Task 3, and `task3.py` still prints its expected output. |
+| 6 | Task 4 creates two separate `CashRegister` objects, completes `compareRegisters()` with `getTotal()` and `if`/`elif`/`else`, and has the reflection comment at the bottom. |
+| 7 | Task 5 adds the class variable `TAX_RATE = 0.13` outside any method, and `getTotalWithTax()` uses `CashRegister.TAX_RATE`, returns the total with tax and does not change `_totalPrice`. `task5.py` has the reflection comment at the bottom. |
+| 8 | Task 6 completes `getCount()` with `len()`, `getTotal()` with a loop over the list of tuples, and `printReceipt()` with the exact layout. `task6.py` has the reflection comment at the bottom. |
+| 9 | The repository link was submitted on Blackboard. |
